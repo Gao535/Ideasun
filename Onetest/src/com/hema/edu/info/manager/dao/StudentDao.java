@@ -3,7 +3,7 @@ package com.hema.edu.info.manager.dao;
 import com.hema.edu.info.manager.domain.Student;
 
 public class StudentDao {
-    private  Student[] students=new Student[5];
+    private static Student[] students=new Student[5];
     public boolean add(Student student) {
 
       int index =-1;
@@ -26,4 +26,33 @@ public class StudentDao {
     public Student[] findAll() {
         return students;
     }
+
+    public void deleteStudent(String dsc) {
+        int index=getIndex(dsc);
+        students[index]=null;
+    }
+    public int getIndex(String id){
+    int index=-1;
+        for (int i = 0; i < students.length; i++) {
+            Student stu=students[i];
+            if(stu!=null&&stu.getId().equals(id)){
+                index=i;
+                break;
+            }
+        }
+    return index;
+    }
+
+    public boolean updatestudent(Student upstudent, String deid) {
+       int up= getIndex(deid);
+        if (up !=-1) {
+            students[up]=upstudent;
+            return true;
+        }else {
+            return false;
+        }
+
+
+    }
+
 }

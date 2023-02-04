@@ -16,14 +16,32 @@ public class StudentServer {
         return studentDao.add(student);
     }
 
-    public void delete( ) {
+    public void delete(String dsc) {
+
+         studentDao.deleteStudent(dsc) ;
     }
 
-    public void select( ) {
+    public Student[] select( ) {
+       Student[] selectst= studentDao.findAll();
+       boolean flag=false;
+        for (int i = 0; i < selectst.length; i++) {
+            Student stu=selectst[i];
+            if (stu != null) {
+                flag=true;
+                break;
+            }
+        }
 
+        if (flag) {
+        return selectst;
+        }
+        else {
+        return null;
+        }
     }
 
-    public void update( ) {
+    public boolean update(Student upstudent, String deid) {
+        return studentDao.updatestudent(upstudent,deid);
     }
 
     public boolean isExists(String id) {

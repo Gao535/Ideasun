@@ -1,6 +1,7 @@
 package com.hema.edu.info.manager.entry;
 
 import com.hema.edu.info.manager.controller.StudentControll;
+import com.hema.edu.info.manager.controller.TeacherControll;
 
 import java.util.Scanner;
 
@@ -19,7 +20,9 @@ public class infoManagerEntry {
                          studentControll.start();
                          break;
                      case  "2":
-                         System.out.println("老师管理系统");
+                         //System.out.println("老师管理系统");
+                         TeacherControll teacherControll=new TeacherControll();
+                         teacherControll.start();
                           break;
                      case "3":
                          System.out.println("退出");

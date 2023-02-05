@@ -45,8 +45,7 @@ public class StudentServer {
     }
 
     public boolean isExists(String id) {
-
-          Student[] stus=studentDao.findAll();
+        Student[] stus=studentDao.findAll();
           boolean exists=false;
         for (int i = 0; i < stus.length; i++) {
            Student students=stus[i];

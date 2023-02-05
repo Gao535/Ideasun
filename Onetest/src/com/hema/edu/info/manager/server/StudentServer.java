@@ -40,8 +40,8 @@ public class StudentServer {
         }
     }
 
-    public boolean update(Student upstudent, String deid) {
-        return studentDao.updatestudent(upstudent,deid);
+    public boolean update(Student student, String deid) {
+        return studentDao.updatestudent(student,deid);
     }
 
     public boolean isExists(String id) {

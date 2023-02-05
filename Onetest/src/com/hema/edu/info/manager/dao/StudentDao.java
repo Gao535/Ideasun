@@ -43,10 +43,10 @@ public class StudentDao {
     return index;
     }
 
-    public boolean updatestudent(Student upstudent, String deid) {
+    public boolean updatestudent(Student student, String deid) {
        int up= getIndex(deid);
         if (up !=-1) {
-            students[up]=upstudent;
+            students[up]=student;
             return true;
         }else {
             return false;

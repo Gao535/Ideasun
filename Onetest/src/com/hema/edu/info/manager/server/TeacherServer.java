@@ -2,7 +2,6 @@ package com.hema.edu.info.manager.server;
 
 
 import com.hema.edu.info.manager.dao.TeacherDao;
-import com.hema.edu.info.manager.domain.Student;
 import com.hema.edu.info.manager.domain.Teacher;
 
 public class TeacherServer {
@@ -40,5 +39,16 @@ public class TeacherServer {
         }
 
         return null;
+    }
+
+    public boolean updateTeather(Teacher teacher, String id) {
+
+        return teacherDao.updateTeacher1(teacher,id);
+    }
+
+    public boolean deleteTeacher(String id) {
+
+
+        return  teacherDao.deleteTeacherDao(id);
     }
 }

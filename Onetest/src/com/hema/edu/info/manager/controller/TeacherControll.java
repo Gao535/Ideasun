@@ -1,6 +1,5 @@
 package com.hema.edu.info.manager.controller;
 
-import com.hema.edu.info.manager.domain.Student;
 import com.hema.edu.info.manager.domain.Teacher;
 import com.hema.edu.info.manager.server.TeacherServer;
 
@@ -20,6 +19,7 @@ public class TeacherControll {
                       addteacher();
                       break;
                   case "2":
+                      updateTeacher();
                       System.out.println("删除");
                       break;
                   case "3":
@@ -27,6 +27,7 @@ public class TeacherControll {
                       selectTeacher();
                       break;
                   case "4":
+                      upteacher();
                       System.out.println("修改");
                       break;
                   case "5":
@@ -37,6 +38,29 @@ public class TeacherControll {
               }
           }
 
+    }
+
+    private void updateTeacher() {
+
+        String id=fanfu();
+        boolean delid=teacherServer.deleteTeacher(id);
+        if (delid) {
+            System.out.println("delete成功");
+        }else {
+            System.out.println("delete失败");
+        }
+    }
+
+    public void upteacher() {
+
+        String id=fanfu();
+        Teacher teacher=chongfu(id);
+        boolean teacher1=teacherServer.updateTeather(teacher,id);
+        if (teacher1) {
+            System.out.println("修改成功");
+        }else {
+            System.out.println("修改失败");
+        }
     }
 
     public void selectTeacher() {
@@ -62,12 +86,39 @@ public class TeacherControll {
             id=sc.next();
             boolean idisexist=teacherServer.isExist(id);
             if (idisexist) {
-                System.out.println("学号存在");
+                System.out.println("工号存在");
             }else {
                 break;
             }
         }
+      Teacher teacher=  chongfu(id);
 
+
+       boolean flag=teacherServer.addTeacher(teacher);
+        if (flag) {
+            System.out.println("success");
+        }else {
+            System.out.println("false");
+        }
+
+    }
+    public String fanfu(){
+        String id;
+        while(true){
+            System.out.println("请输入老师工号");
+            id=sc.next();
+            boolean idisexist=teacherServer.isExist(id);
+            if (idisexist) {
+                break;
+            }else {
+                System.out.println("工号不存在");
+
+            }
+
+        }
+        return id;
+    }
+    public Teacher chongfu(String id){
         System.out.println("请输入老是姓名");
         String name=sc.next();
         System.out.println("请输入老师年龄");
@@ -79,13 +130,6 @@ public class TeacherControll {
         teacher.setName(name);
         teacher.setAge(age);
         teacher.setDay(day);
-
-       boolean flag=teacherServer.addTeacher(teacher);
-        if (flag) {
-            System.out.println("success");
-        }else {
-            System.out.println("false");
-        }
-
+        return teacher;
     }
 }

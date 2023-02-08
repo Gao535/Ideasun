@@ -4,6 +4,12 @@ import com.hema.edu.info.manager.domain.Student;
 
 public class StudentDao {
     private static Student[] students=new Student[5];
+    static {
+        Student students1=new Student("1","高大辉","1","1977-10-11");
+        Student student2=new Student("2","高小辉","2","1987-10-11");
+        students[0]=students1;
+        students[1]=student2;
+    }
     public boolean add(Student student) {
 
       int index =-1;

@@ -1,11 +1,12 @@
 package com.hema.edu.info.manager.server;
 
+import com.hema.edu.info.manager.dao.OtherStudentDao;
 import com.hema.edu.info.manager.dao.StudentDao;
 import com.hema.edu.info.manager.domain.Student;
 
 public class StudentServer {
-   private StudentDao studentDao=new StudentDao();
-
+  // private StudentDao studentDao=new StudentDao();
+private OtherStudentDao studentDao=new OtherStudentDao();
     public boolean add(Student student) {
 
         //Student[] Students=new Student[5];

@@ -5,10 +5,10 @@ import com.hema.edu.info.manager.server.TeacherServer;
 
 import java.util.Scanner;
 
-public class TeacherControll {
+public  class TeacherControll  {
     private TeacherServer teacherServer=new TeacherServer();
     Scanner sc=new Scanner(System.in);
-    public void start() {
+    public final void start() {
         lo:while (true){
               System.out.println("---------------------欢迎来到管理系统----------------------");
               System.out.println("请输入你的选择：1.添加老师 2.删除老师 3.查看老师 4.修改老师 5.退出");
@@ -40,7 +40,7 @@ public class TeacherControll {
 
     }
 
-    private void updateTeacher() {
+    private final void updateTeacher() {
 
         String id=fanfu();
         boolean delid=teacherServer.deleteTeacher(id);
@@ -51,7 +51,7 @@ public class TeacherControll {
         }
     }
 
-    public void upteacher() {
+    public final void upteacher() {
 
         String id=fanfu();
         Teacher teacher=chongfu(id);
@@ -63,7 +63,7 @@ public class TeacherControll {
         }
     }
 
-    public void selectTeacher() {
+    public final void selectTeacher() {
         Teacher[] teachers= teacherServer.selectTeacher();
         if (teachers == null) {
             System.out.println("没有数据");
@@ -79,7 +79,7 @@ public class TeacherControll {
 
     }}
 
-    public void addteacher() {
+    public final void addteacher() {
         String id;
         while(true){
             System.out.println("请输入老师工号");

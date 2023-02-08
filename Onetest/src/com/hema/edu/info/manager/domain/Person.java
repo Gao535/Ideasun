@@ -1,17 +1,16 @@
 package com.hema.edu.info.manager.domain;
 
-public class Student extends Person {
-   /* private  String id;
-
-
-
+public class Person {
+    private  String id;
     private  String name;
     private  String age;
     private  String day;
 
-    public Student() {
+    public Person() {
+
     }
-    public Student(String id, String name, String age, String day) {
+
+    public Person(String id, String name, String age, String day) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -48,12 +47,5 @@ public class Student extends Person {
 
     public void setDay(String day) {
         this.day = day;
-    }*/
-
-    public Student() {
-    }
-
-    public Student(String id, String name, String age, String day) {
-        super(id, name, age, day);
     }
 }
